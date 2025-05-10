@@ -1,1 +1,1 @@
-# Inventai Docs
+# InventAI Docs
