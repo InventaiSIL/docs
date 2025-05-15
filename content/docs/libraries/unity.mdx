@@ -1,3 +1,30 @@
 ---
 title: Unity
 ---
+
+
+## How to generate 3D models
+
+### Requirements
+
+- Have [Hunyuan3D-2](https://github.com/Tencent/Hunyuan3D-2) installed locally or have a public API
+- If Hunyuan3D-2 is local, you need to install its prerequisites
+- Install [UniGLTF](https://github.com/ousttrue/UniGLTF/releases) plugin on Unity to use 3D `.glb` files
+- Install Test Framework on Unity for the plugin UniGLTF to function properly.
+
+> **Note:** Hunyuan3D doesn't run locally on Mac, so you'll need a public API to be able to generate 3D models using our tool.
+
+
+Once you've imported the library into Unity, you can use the custom editor interface to send prompts to Hunyuan3D for model generation. The editor includes the following fields:
+
+- **Text Prompt**: Enter a detailed description of the object you want to generate. Hunyuan3D supports generating one object at a time. Keep in mind that more complex prompts may increase generation time.
+- **API URL**: The endpoint to which Unity will send the request.
+- **API Key**: Leave this empty if you're using a local instance of the model.
+- **Filename**: Specify the name for the generated model file.
+- **Save Path**: Define the folder where the model will be saved. For example, setting this to `3D models` will create or use a folder at `Assets/3D models` in your Unity project.
+
+_(See image for reference to the editor layout.)_
+
+
+The generated `.glb` file will be saved inside the folder you specified in the **Save Path**.  
+You can now use **UniGLTF** to import and use this model directly within your Unity scene.
