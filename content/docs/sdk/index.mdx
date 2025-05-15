@@ -45,3 +45,29 @@ To begin using the SDK:
 5. Generate and export your narrative
 
 For detailed instructions, see the [Quick Start](quickstart.md) guide.
+
+## Integrating Hunyuan3D with Inventai
+
+The `ImageAgentHunyuan3D` class serves as a bridge between the Inventai SDK and the Hunyuan3D-2 model generation API. Here's how it works:
+
+#### Purpose
+
+This agent allows you to generate 3D models via prompts or images, integrating seamlessly with the narrative logic of Inventai.
+
+### How It Works
+
+The class uses an internal `HttpClient` to send a POST request to the Hunyuan3D-2 API endpoint. You provide either a **text prompt** or a **base64-encoded image**. Here's what happens:
+
+1. A JSON payload is created using the provided `prompt` or `image`.
+2. The payload is serialized using **snake_case** naming conventions for compatibility.
+3. The request is sent to the specified endpoint.
+4. If successful, the API returns the generated 3D model as a byte array (typically a `.glb` file), which can then be saved or used directly in Unity.
+
+### Example Request
+
+Here's an example of what the JSON payload might look like when sending a text prompt:
+
+```json
+{
+  "text": "A detailed 3D model of a medieval sword with intricate engravings and a leather-wrapped handle"
+}
