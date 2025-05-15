@@ -2,7 +2,31 @@
 title: SDK
 ---
 
-The Inventai SDK is a powerful toolkit for creating interactive narrative experiences. It provides a comprehensive set of tools for generating and managing interactive stories, characters, and dialogue.
+The InventAI SDK is a powerful C# library for AI-powered game development. It provides tools for image generation, 3D model generation, text and novel generation, character management, and more.
+
+If you're working with Ren'Py or Unity, we suggest using the specific tools for those platforms that provide a more straight-forward experience.
+
+If you're working with other platforms such as Godot, the SDK is a good starting point.
+
+## Features
+
+- Image generation
+- 3D model generation
+- Text and novel generation
+- Character management
+- Export to Ren'Py, JSON, and more
+
+## Installation
+
+The InventAI SDK is a C# library that can be added to your project as a reference. Simply add the InventAI project to your solution and reference it in your project.
+
+## Architecture
+
+The SDK follows a modular architecture with clear separation of concerns:
+
+- Core functionality in the `Inventai` project
+- Novel-specific features in the `InventaiNovel` project
+- Example implementations in the `InventaiNovelTestApp` project
 
 ## Key Components
 
@@ -26,33 +50,19 @@ The SDK supports multiple export formats, including:
 - JSON format for data storage and transfer
 - Custom formats through the exporter interface
 
-## Architecture
+### Image Generation
 
-The SDK follows a modular architecture with clear separation of concerns:
+The SDK provides image generation and modification through the `ImageAgent` class, supporting both text prompts and image inputs.
 
-- Core functionality in the `Inventai` project
-- Novel-specific features in the `InventaiNovel` project
-- Example implementations in the `InventaiNovelTestApp` project
+### 3D Model Generation
 
-## Getting Started
+The SDK offers 3D model generation through the `ModelAgent` class.
 
-To begin using the SDK:
+## Integrating Hunyuan3D with InventAI
 
-1. Install the required NuGet packages
-2. Reference the Inventai and InventaiNovel projects
-3. Create a new instance of the `Novel` class
-4. Configure your characters and story parameters
-5. Generate and export your narrative
+The `ImageAgentHunyuan3D` class serves as a bridge between the InventAI SDK and the Hunyuan3D-2 model generation API. Here's how it works:
 
-For detailed instructions, see the [Quick Start](quickstart.md) guide.
-
-## Integrating Hunyuan3D with Inventai
-
-The `ImageAgentHunyuan3D` class serves as a bridge between the Inventai SDK and the Hunyuan3D-2 model generation API. Here's how it works:
-
-#### Purpose
-
-This agent allows you to generate 3D models via prompts or images, integrating seamlessly with the narrative logic of Inventai.
+This agent allows you to generate 3D models via prompts or images, integrating seamlessly with the narrative logic of InventAI.
 
 ### How It Works
 
@@ -71,3 +81,4 @@ Here's an example of what the JSON payload might look like when sending a text p
 {
   "text": "A detailed 3D model of a medieval sword with intricate engravings and a leather-wrapped handle"
 }
+```
